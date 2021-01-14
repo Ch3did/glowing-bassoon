@@ -24,9 +24,9 @@ while True:
     if option=="r":
         read()
     if option=="u":
-        pass
+        db.update()
     if option=="d":
-        pass
+        db.delete()
     if option=="e":
         for i in range (1, 4):
             os.system("clear")
