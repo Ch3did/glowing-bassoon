@@ -10,6 +10,8 @@ def start_database():
                     user TEXT NOT NULL,
                     pass TEXT NOT NULL);
          ''')
+    conn.commit()
+    c.close()
 
 def create():
     c = conn.cursor()
@@ -20,8 +22,13 @@ def create():
         VALUES(?,?,?); ''' , (serv, user, passw)) 
     if c.rowcount <= 1:
         print("Deu certo...")
+        conn.commit()
     else:
         print("Deu errado...")
+    c.close()
+
+
+    
 def read():
     pass
 
