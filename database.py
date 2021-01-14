@@ -28,11 +28,9 @@ def create():
     c.close()
 
 
-    
+
 def read():
     pass
-
-
 
 def update():
     pass
