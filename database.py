@@ -50,3 +50,12 @@ def update():
                 WHERE id  = {};'''.format(choose_column, new_value, int(choose_id)))
     conn.commit()
     c.close()
+
+
+def delete():
+    c= conn.cursor()
+    choose_delete= input("Qual o id? : ")
+    c.execute('''DELETE FROM passwords
+                WHERE id = {};'''.format(choose_delete))
+    conn.commit()
+    c.close()
