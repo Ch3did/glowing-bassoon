@@ -36,4 +36,17 @@ def read():
     print("--------------------------------------------------------------------------------------------")
     for row in range(len(rows)):
         print("Serviço: {}  | Usuário: {}  | Senha: {}  | ID: {}  ".format(rows[row][1], rows[row][2], rows[row][3], rows[row][0]))
-    print("--------------------------------------------------------------------------------------------")
+        print("--------------------------------------------------------------------------------------------")
+
+
+
+def update():
+    c = conn.cursor()
+    choose_column= input("Qual a coluna?: ")
+    choose_id= input("Qual o ID? : ")
+    new_value= input("Qual o novo valor? : ")
+    c.execute('''UPDATE passwords
+                SET {} = '{}'
+                WHERE id  = {};'''.format(choose_column, new_value, int(choose_id)))
+    conn.commit()
+    c.close()
