@@ -11,7 +11,7 @@ def choise():
 db.start_database()
 while True:
     os.system("clear")
-    #time.sleep(2)
+    time.sleep(1)
     print ("####################################")
     print ("--------------PassWD----------------")
     print ("####################################")  
@@ -22,7 +22,7 @@ while True:
     if option=="c":
         db.create()
     if option=="r":
-        read()
+        db.read()
     if option=="u":
         db.update()
     if option=="d":

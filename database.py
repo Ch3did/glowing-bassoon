@@ -30,12 +30,10 @@ def create():
 
 
 def read():
-    pass
-
-def update():
-    pass
-
-
-
-def delete():
-    pass
+    c = conn.cursor()
+    c.execute("SELECT * FROM passwords")
+    rows = c.fetchall()
+    print("--------------------------------------------------------------------------------------------")
+    for row in range(len(rows)):
+        print("Serviço: {}  | Usuário: {}  | Senha: {}  | ID: {}  ".format(rows[row][1], rows[row][2], rows[row][3], rows[row][0]))
+    print("--------------------------------------------------------------------------------------------")
