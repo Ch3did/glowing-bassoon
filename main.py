@@ -1,4 +1,5 @@
 import database as db
+import security as sec 
 import os
 import time
 
@@ -8,6 +9,11 @@ def choise():
     return choise
 
 
+start = sec.check_password()
+if start == True:
+    pass
+else:
+    exit
 db.start_database()
 while True:
     os.system("clear")
@@ -31,7 +37,7 @@ while True:
         for i in range (1, 4):
             os.system("clear")
             print ("Exiting sistem... ",i)
-            time.sleep(1)
+            time.sleep(0.03j)
         os.system("clear")
         break
         

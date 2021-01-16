@@ -42,7 +42,7 @@ def read():
 
 def update():
     c = conn.cursor()
-    choose_column= input("Qual a coluna?: ")
+    choose_column= input("'serv', 'user', 'pass'? : ")
     choose_id= input("Qual o ID? : ")
     new_value= input("Qual o novo valor? : ")
     c.execute('''UPDATE passwords
