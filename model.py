@@ -1,6 +1,19 @@
 import sqlite3
+import bcrypt 
+import controller as cnt
 
 conn = sqlite3.connect('sql_passwd.db')
+
+def check_password():
+    #Hash de senha pré definida 
+    senha = b'$2b$12$BUcr3KyHcCMb.Pivy3C3V./6NCZuN45RrwoFEs/jEWaUIOf7NySmO'
+    kick = bytes(input("? :"), 'utf-8')
+    hashed = bcrypt.hashpw(kick,bcrypt.gensalt())
+    if bcrypt.checkpw(kick, senha):
+        return True
+    else:
+        return False
+
 
 def start_database():
     c = conn.cursor()
@@ -15,16 +28,14 @@ def start_database():
 
 def create():
     c = conn.cursor()
-    serv = input("Qual o servico?: ")
-    user = input("Qual o user?: ")
-    passw = input("Qual o password?: ")
+    cnt.create_values()
     c.execute(''' INSERT INTO passwords(serv, user, pass)
         VALUES(?,?,?); ''' , (serv, user, passw)) 
     if c.rowcount <= 1:
-        print("Deu certo...")
         conn.commit()
+        return True 
     else:
-        print("Deu errado...")
+    x
     c.close()
 
 

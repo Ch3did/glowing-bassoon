@@ -1,15 +1,13 @@
+import controller as cnt
 import model as db
-import security as sec 
 import os
 import time
 
 
-def choise():
-    choise = str(input("O que quer fazer?: "))
-    return choise
 
 
-start = sec.check_password()
+
+start = cnt.check_password()
 if start == True:
     db.start_database()
     while True:
@@ -19,11 +17,15 @@ if start == True:
         print ("--------------PassWD----------------")
         print ("####################################")  
         print("\n") 
-        option = choise()    
+        option = cnt.choise()    
         if option not in ['c','r','u','d','e']:
             print("Opção Inválida!!!") 
         if option=="c":
-            db.create()
+            status = db.create()
+            if status True:
+                print("Deu certo...")
+            else: 
+                
         if option=="r":
             db.read()
         if option=="u":
