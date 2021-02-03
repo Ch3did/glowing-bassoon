@@ -5,10 +5,7 @@ import time
 
 
 
-
-
-start = cnt.check_password()
-if start == True:
+if db.check_password() == True:
     db.start_database()
     while True:
         os.system("clear")
@@ -22,10 +19,10 @@ if start == True:
             print("Opção Inválida!!!") 
         if option=="c":
             status = db.create()
-            if status True:
+            if status == True:
                 print("Deu certo...")
             else: 
-                
+                print("Deu Ruim...")
         if option=="r":
             db.read()
         if option=="u":

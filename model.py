@@ -7,8 +7,7 @@ conn = sqlite3.connect('sql_passwd.db')
 def check_password():
     #Hash de senha pré definida 
     senha = b'$2b$12$BUcr3KyHcCMb.Pivy3C3V./6NCZuN45RrwoFEs/jEWaUIOf7NySmO'
-    kick = bytes(input("? :"), 'utf-8')
-    hashed = bcrypt.hashpw(kick,bcrypt.gensalt())
+    kick = cnt.kick()
     if bcrypt.checkpw(kick, senha):
         return True
     else:
@@ -28,14 +27,14 @@ def start_database():
 
 def create():
     c = conn.cursor()
-    cnt.create_values()
+    serv, user, passwd = cnt.create_values()
     c.execute(''' INSERT INTO passwords(serv, user, pass)
-        VALUES(?,?,?); ''' , (serv, user, passw)) 
+        VALUES(?,?,?) ''' , (serv, user, passwd)) 
     if c.rowcount <= 1:
         conn.commit()
         return True 
     else:
-    x
+        return False
     c.close()
 
 
