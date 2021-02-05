@@ -1,5 +1,4 @@
-
-
+import getpass
 
 
 def choise():
@@ -10,10 +9,9 @@ def choise():
 def create_values():
     serv = input("Qual o servico?: ")
     user = input("Qual o user?: ")
-    passw = input("Qual o password?: ")
-    print(type(passw))
+    passw = getpass.getpass("Qual o password?: ")
     return serv, user, passw
 
 def kick():
-    kick = bytes(input("? :"), 'utf-8')
+    kick = bytes(getpass.getpass("? :"), 'utf-8')
     return kick

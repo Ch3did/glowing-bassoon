@@ -13,7 +13,6 @@ def check_password():
     else:
         return False
 
-
 def start_database():
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS passwords(
@@ -37,18 +36,11 @@ def create():
         return False
     c.close()
 
-
-
 def read():
     c = conn.cursor()
     c.execute("SELECT * FROM passwords")
     rows = c.fetchall()
-    print("--------------------------------------------------------------------------------------------")
-    for row in range(len(rows)):
-        print("Serviço: {}  | Usuário: {}  | Senha: {}  | ID: {}  ".format(rows[row][1], rows[row][2], rows[row][3], rows[row][0]))
-        print("--------------------------------------------------------------------------------------------")
-
-
+    return rows
 
 def update():
     c = conn.cursor()
@@ -60,7 +52,6 @@ def update():
                 WHERE id  = {};'''.format(choose_column, new_value, int(choose_id)))
     conn.commit()
     c.close()
-
 
 def delete():
     c= conn.cursor()

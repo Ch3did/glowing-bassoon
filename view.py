@@ -4,31 +4,46 @@ import os
 import time
 
 
+def template():
+    os.system("clear")
+    print ("####################################")
+    print ("--------------PassWD----------------")
+    print ("####################################")  
+    print("\n")
 
 if db.check_password() == True:
     db.start_database()
     while True:
-        os.system("clear")
-        time.sleep(1)
-        print ("####################################")
-        print ("--------------PassWD----------------")
-        print ("####################################")  
-        print("\n") 
-        option = cnt.choise()    
+        template() 
+        option = cnt.choise() 
         if option not in ['c','r','u','d','e']:
             print("Opção Inválida!!!") 
+
+        #Create ----------------------------------------------------------
         if option=="c":
             status = db.create()
             if status == True:
                 print("Deu certo...")
             else: 
                 print("Deu Ruim...")
+
+        #Read ------------------------------------------------------------
         if option=="r":
-            db.read()
+            rows = db.read()
+            print("--------------------------------------------------------------------------------------------")
+            for row in range(len(rows)):
+                print("Serviço: {}  | Usuário: {}  | Senha: {}  | ID: {}  ".format(rows[row][1], rows[row][2], rows[row][3], rows[row][0]))
+                print("--------------------------------------------------------------------------------------------")
+        
+        #Update ------------------------------------------------------------
         if option=="u":
             db.update()
+        
+        #Delete ------------------------------------------------------------
         if option=="d":
             db.delete()
+        
+        #Exit ------------------------------------------------------------            
         if option=="e":
             for i in range (1, 4):
                 os.system("clear")
@@ -47,3 +62,4 @@ else:
 
 
 
+        
