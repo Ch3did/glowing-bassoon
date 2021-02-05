@@ -3,6 +3,8 @@ import model as db
 import os
 import time
 
+#Constante
+opç = ['c','r','u','d','e']
 
 def template():
     os.system("clear")
@@ -16,7 +18,7 @@ if db.check_password() == True:
     while True:
         template() 
         option = cnt.choise() 
-        if option not in ['c','r','u','d','e']:
+        if option not in opç:
             print("Opção Inválida!!!") 
 
         #Create ----------------------------------------------------------
@@ -43,8 +45,8 @@ if db.check_password() == True:
             else:
                 print("Falha na alteração")
     
-        
-        #Delete ------------------------------------------------------------
+    
+        #Delete -----------------------------------------------------------
         if option=="d":
             db.delete()
         
