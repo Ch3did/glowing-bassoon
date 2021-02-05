@@ -37,7 +37,12 @@ if db.check_password() == True:
         
         #Update ------------------------------------------------------------
         if option=="u":
-            db.update()
+            status = db.update()
+            if status <= 1:
+                print("Atualização Feita com sucesso") 
+            else:
+                print("Falha na alteração")
+    
         
         #Delete ------------------------------------------------------------
         if option=="d":

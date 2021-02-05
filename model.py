@@ -52,6 +52,8 @@ def update():
                 WHERE id  = {};'''.format(choose_column, new_value, int(choose_id)))
     conn.commit()
     c.close()
+    return c.rowcount 
+  
 
 def delete():
     c= conn.cursor()
